@@ -28,6 +28,7 @@ func Init() *sql.DB {
 		log.Fatal(err)
 	}
 
+	// apply retry mechanism for connecting to database
 	for i := 0; i < 10; i++ {
 		db, err = sql.Open("mysql", dsn)
 		if err == nil {
